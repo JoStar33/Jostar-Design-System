@@ -1,9 +1,10 @@
+import { colors } from '@/styles/Theme';
 import React from 'react';
-import styled from 'styled-components';
+import { S } from './Button.style';
 
 type ButtonType = 'positiveCancel' | 'negativeCancel' | 'neutral' | 'warning' | 'positive' | 'white';
 
-interface Props extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
+export interface Props extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
   margin?: string;
   height?: string;
   cursor?: string;
@@ -30,6 +31,7 @@ export default React.forwardRef<HTMLButtonElement, Props>(function Button(
     borderColor = '#ebebeb',
     disabled,
     buttonType = 'positive',
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     fullMobile,
     children,
     ...rest
@@ -38,13 +40,17 @@ export default React.forwardRef<HTMLButtonElement, Props>(function Button(
 ) {
   const buttonStyle = (): React.CSSProperties => {
     if (buttonType === 'positive') {
-      return {};
+      return {
+        backgroundColor: colors.black,
+        color: colors.white,
+      };
     }
     return {
       backgroundColor,
       borderColor,
     };
   };
+
   return (
     <S.Button
       {...rest}
@@ -56,12 +62,3 @@ export default React.forwardRef<HTMLButtonElement, Props>(function Button(
     </S.Button>
   );
 });
-
-const S = {
-  Button: styled.button`
-    all: unset;
-    letter-spacing: 0.5px;
-    text-align: center;
-    box-sizing: border-box;
-  `,
-};
