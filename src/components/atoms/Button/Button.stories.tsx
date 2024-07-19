@@ -13,11 +13,7 @@ const ButtonStory: Meta<typeof Button> = {
       description: 'positiveCancel | negativeCancel | neutral | warning | positive | white | custom',
     },
   },
-  args: {
-    buttonType: 'positive',
-  },
   decorators: [(story) => <ComponentWrapper style={{ margin: '3rem' }}>{story()}</ComponentWrapper>],
-  //👇 Our exports that end in "Data" are not stories.
   excludeStories: /.*Data$/,
 };
 
