@@ -6,6 +6,7 @@ export const S = {
       &__container {
         display: flex;
         flex-direction: column;
+        gap: 10px;
       }
     }
   `,

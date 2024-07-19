@@ -50,13 +50,6 @@ const GlobalStyle = createGlobalStyle`
     
   }
 
-  .custom-magnify-cursor {
-    background-color: white;
-    img {
-      object-fit: cover;
-    }
-  }
-
   a {
     color: inherit;
     text-decoration: none;
