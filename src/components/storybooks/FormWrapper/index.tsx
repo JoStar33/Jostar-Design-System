@@ -1,6 +1,6 @@
 import Button from '@/components/atoms/Button';
 import { DefaultValues, FormProvider, Resolver, SubmitHandler, useForm } from 'react-hook-form';
-import styled from 'styled-components';
+import { S } from '@/components/storybooks/FormWrapper/FormWrapper.style';
 
 interface Props<T extends Record<string, any>> {
   children: React.ReactNode;
@@ -24,14 +24,3 @@ export default function FormWrapper<T extends Record<string, any>>({ children, d
     </FormProvider>
   );
 }
-
-const S = {
-  FormWrapper: styled.form`
-    .form-wrapper {
-      &__container {
-        display: flex;
-        flex-direction: column;
-      }
-    }
-  `,
-};

@@ -1,9 +1,9 @@
-import styled from 'styled-components';
+import { S } from '@/components/atoms/Space/Space.style';
 
-export default function Space() {
-  return <S.Space>Space</S.Space>;
+interface Props {
+  height: string;
 }
 
-const S = {
-  Space: styled.div``,
-};
+export default function Space({ height }: Props) {
+  return <S.Space style={{ height }} />;
+}
