@@ -20,7 +20,7 @@ export default function Text({
 }: Props) {
   return (
     <S.Text
-      isEllipsis={isEllipsis}
+      {...rest}
       style={{
         ...rest.style,
         ...TextStyles[variant],
@@ -28,7 +28,7 @@ export default function Text({
         width,
         lineHeight,
       }}
-      {...rest}
+      isEllipsis={isEllipsis}
     />
   );
 }
