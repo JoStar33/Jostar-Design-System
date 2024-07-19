@@ -2,7 +2,7 @@ import React from 'react';
 import { S } from './ComponentWrapper.style';
 
 interface Props {
-  style: React.CSSProperties;
+  style?: React.CSSProperties;
   children: React.ReactNode;
 }
 

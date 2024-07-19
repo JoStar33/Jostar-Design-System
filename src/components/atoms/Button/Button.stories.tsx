@@ -6,7 +6,7 @@ type Args = StoryObj<typeof Button>;
 
 const ButtonStory: Meta<typeof Button> = {
   component: Button,
-  title: 'Button',
+  title: 'Atoms/Button',
   tags: ['autodocs'],
   argTypes: {
     buttonType: {

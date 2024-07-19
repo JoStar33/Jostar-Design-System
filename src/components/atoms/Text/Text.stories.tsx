@@ -1,13 +1,13 @@
 import ComponentWrapper from '@/components/storybooks/ComponentWrapper';
 import Text from '.';
 import type { Meta, StoryObj } from '@storybook/react';
-import Button from '../Button';
+import Button from '@/components/atoms/Button';
 
 type Args = StoryObj<typeof Text>;
 
 const TextStory: Meta<typeof Text> = {
   component: Text,
-  title: 'Text',
+  title: 'Atoms/Text',
   tags: ['autodocs'],
   argTypes: {
     variant: {
