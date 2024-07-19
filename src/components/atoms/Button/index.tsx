@@ -2,16 +2,16 @@ import { colors } from '@/styles/Theme';
 import React from 'react';
 import { S } from './Button.style';
 
-type ButtonType = 'positiveCancel' | 'negativeCancel' | 'neutral' | 'warning' | 'positive' | 'white';
+type ButtonType = 'positiveCancel' | 'negativeCancel' | 'neutral' | 'warning' | 'positive' | 'white' | 'custom';
 
 export interface Props extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
   margin?: string;
   height?: string;
   cursor?: string;
   fontSize?: string;
-  backgroundColor?: string;
+  backgroundColor?: keyof typeof colors;
+  borderColor?: keyof typeof colors;
   borderRadius?: string;
-  borderColor?: string;
   width?: string;
   disabled?: boolean;
   buttonType?: ButtonType; // 리터럴 타입 추가
@@ -27,8 +27,8 @@ export default React.forwardRef<HTMLButtonElement, Props>(function Button(
     cursor = 'pointer',
     borderRadius = '0',
     fontSize = '16px',
-    backgroundColor = '#ebebeb',
-    borderColor = '#ebebeb',
+    backgroundColor = 'white',
+    borderColor = 'white',
     disabled,
     buttonType = 'positive',
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -45,9 +45,32 @@ export default React.forwardRef<HTMLButtonElement, Props>(function Button(
         color: colors.white,
       };
     }
+    if (buttonType === 'positiveCancel') {
+      return {
+        backgroundColor: colors.gray,
+        color: colors.white,
+      };
+    }
+    if (buttonType === 'neutral') {
+      return {
+        border: '1px solid',
+        borderColor: colors.black,
+        backgroundColor: colors.white,
+        color: colors.black,
+      };
+    }
+    if (buttonType === 'negativeCancel') {
+      return {
+        border: '1px solid',
+        borderColor: colors.gray,
+        backgroundColor: colors.white,
+        color: colors.gray,
+      };
+    }
+
     return {
-      backgroundColor,
-      borderColor,
+      backgroundColor: colors[backgroundColor],
+      borderColor: colors[borderColor],
     };
   };
 
