@@ -1,9 +1,34 @@
-import styled from 'styled-components';
+import { colors } from '@/styles/Theme';
+import { motion } from 'framer-motion';
+import { S } from './ProgressBar.style';
 
-export default function ProgressBar() {
-  return <S.ProgressBar>ProgressBar</S.ProgressBar>;
+interface Props {
+  children?: React.ReactNode;
+  second?: number;
+  width?: string;
+  height?: string;
+  borderRadius?: string;
+  barColor?: keyof typeof colors;
 }
 
-const S = {
-  ProgressBar: styled.div``,
-};
+export default function ProgressBar({
+  width = '100%',
+  height = '10px',
+  borderRadius = '10px',
+  children,
+  barColor = 'black',
+  second = 10,
+}: Props) {
+  return (
+    <S.ProgressBar style={{ width, height, borderRadius }}>
+      <motion.div
+        className="bar"
+        animate={{ width: ['0%', '100%'] }}
+        transition={{ duration: second, ease: 'easeIn' }}
+        style={{ backgroundColor: colors[barColor] }}
+      >
+        {children}
+      </motion.div>
+    </S.ProgressBar>
+  );
+}

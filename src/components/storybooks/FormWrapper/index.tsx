@@ -7,19 +7,24 @@ interface Props<T extends Record<string, any>> {
   defaultValues: DefaultValues<T>;
   resolver?: Resolver<T, any>;
   onSubmit: SubmitHandler<T>;
+  style?: React.CSSProperties;
 }
 
-export default function FormWrapper<T extends Record<string, any>>({ children, defaultValues, resolver, onSubmit }: Props<T>) {
+export default function FormWrapper<T extends Record<string, any>>({ children, defaultValues, resolver, onSubmit, style }: Props<T>) {
   const methods = useForm<T>({
     defaultValues,
     resolver,
   });
 
   return (
-    <FormProvider {...methods}>
+    <FormProvider<T> {...methods}>
       <S.FormWrapper onSubmit={methods.handleSubmit(onSubmit)}>
-        <div className="form-wrapper__container">{children}</div>
-        <Button type="submit">등록</Button>
+        <div className="form-wrapper__container" style={style}>
+          {children}
+        </div>
+        <Button margin="10px 0px 0px 0px" type="submit">
+          등록
+        </Button>
       </S.FormWrapper>
     </FormProvider>
   );
