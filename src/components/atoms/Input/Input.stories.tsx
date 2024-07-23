@@ -45,4 +45,26 @@ export const InputTest: Args = {
   ),
 };
 
+export const InputOtherOptionTest: Args = {
+  args: {
+    name: 'name',
+    readOnly: true,
+    placeholder: '이름을 입력해주세요.',
+    label: 'readOnly & visibleError = false & placeHolder',
+    visibleError: false,
+  },
+  decorators: (story) => (
+    <FormWrapper<TestForm>
+      defaultValues={initFormData}
+      onSubmit={(submitData) => {
+        alert(submitData.age);
+      }}
+      resolver={yupResolver(schema.testSchema)}
+    >
+      {story()}
+      <Input<TestForm> required name="age" type="number" label="라벨정보" />
+    </FormWrapper>
+  ),
+};
+
 export default InputStory;
