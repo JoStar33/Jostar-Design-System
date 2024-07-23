@@ -1,6 +1,7 @@
 import React from 'react';
 import { FieldValues, Path, PathValue, useFormContext } from 'react-hook-form';
 import { S } from './Checkbox.style';
+import Icon from '../Icon';
 
 interface Props<T extends FieldValues> {
   name: Path<T>;
@@ -19,6 +20,9 @@ export default function Checkbox<T extends FieldValues>({ name, children, style,
   return (
     <S.Checkbox htmlFor={`checkbox-${name}`} style={style}>
       <input style={inputStyle} value={value} id={`checkbox-${name}`} type="checkbox" disabled={disabled} onChange={handleClickCheckbox} />
+      <span className="icon-box">
+        <Icon name="Check" width="15px" height="15px" />
+      </span>
       {children}
     </S.Checkbox>
   );

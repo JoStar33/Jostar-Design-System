@@ -11,9 +11,9 @@ interface Props<T extends FieldValues> {
 }
 
 export default function RadioButton<T extends FieldValues>({ name, value, style, inputStyle, disabled, children }: Props<T>) {
-  const { register } = useFormContext<T>();
+  const { register, watch } = useFormContext<T>();
   return (
-    <S.RadioButton htmlFor={`radio-${name}-${value}`} style={style}>
+    <S.RadioButton htmlFor={`radio-${name}-${value}`} style={style} $active={watch(name) === value}>
       <input style={inputStyle} value={value} id={`radio-${name}-${value}`} type="radio" disabled={disabled} {...register(name)} />
       {children}
     </S.RadioButton>
