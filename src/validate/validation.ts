@@ -215,6 +215,14 @@ export const validation = {
   IMAGE_FILE_LENGTH: ({ minLength, maxLength }: { minLength: number; maxLength: number }) =>
     yup.array().min(minLength, MORE_IMAGE(minLength)).max(maxLength, LESS_IMAGE(maxLength)),
 
+  REQUIRED_SELECT_CHECK: () =>
+    yup
+      .string()
+      .required('필수선택')
+      .test('check-test', '필수선택', (value) => {
+        return value === 'Y';
+      }),
+
   REQUIRED_ARRAY_KOR: () =>
     yup
       .array()

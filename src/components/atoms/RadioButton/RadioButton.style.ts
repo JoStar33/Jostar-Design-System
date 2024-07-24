@@ -33,7 +33,7 @@ export const S = {
         top: 50%;
         left: 50%;
         border-radius: 50%;
-        transform: translate(-53%, -50%);
+        transform: translate(-51%, -50%);
         width: 12px;
         height: 12px;
         background-color: ${(props) => props.theme.colors.white};

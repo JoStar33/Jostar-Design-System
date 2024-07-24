@@ -6,6 +6,9 @@ const schema = {
     name: validation.REQUIRED_TEXT_8({ minLength: 1, maxLength: 30 }),
     age: validation.REQUIRED_NUMBER,
   }),
+  checkTestSchema: yup.object({
+    requiredAgreement: validation.REQUIRED_SELECT_CHECK(),
+  }),
 };
 
 export default schema;
