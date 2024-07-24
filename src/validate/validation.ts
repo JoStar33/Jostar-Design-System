@@ -147,30 +147,6 @@ export const validation = {
       .matches(regex.tagTitleKor, '한글 필수, 영문, 숫자만 입력 가능')
       .min(minLength, MORE_TEXT(minLength))
       .max(maxLength, LESS_TEXT(maxLength)),
-  //필수 ) 텍스트 - 한글 1자 이상 필수 자음/모음(X) 특수문자(O) 영문(O) 숫자(0) 띄어쓰기(0)
-  REQUIRED_TEXT_8: ({ minLength, maxLength }: { minLength: number; maxLength: number }) =>
-    yup
-      .string()
-      .required()
-      .matches(regex.firstSpace, FIRST_SPACES_VALID_TEXT)
-      .matches(regex.lastSpace, LAST_SPACES_VALID_TEXT)
-      .matches(regex.gather, KO_VALID_TEXT_1)
-      .matches(regex.consonant, KO_VALID_TEXT_2)
-      .matches(regex.brandTitleKor, '한글 필수')
-      .min(minLength, MORE_TEXT(minLength))
-      .max(maxLength, LESS_TEXT(maxLength)),
-
-  //필수 ) 텍스트 - 영문 1자 이상 필수 한글(X) 영문(O) 공백체크(O) 숫자(O) 띄어쓰기(O)
-  REQUIRED_TEXT_9: ({ minLength, maxLength }: { minLength: number; maxLength: number }) =>
-    yup
-      .string()
-      .required()
-      .matches(regex.firstSpace, FIRST_SPACES_VALID_TEXT)
-      .matches(regex.lastSpace, LAST_SPACES_VALID_TEXT)
-      .matches(regex.koreanNot, KO_VALID_TEXT_3)
-      .matches(regex.brandTitleEng, '영문 필수')
-      .min(minLength, MORE_TEXT(minLength))
-      .max(maxLength, LESS_TEXT(maxLength)),
 
   //필수 ) n 이상의 숫자
   REQUIRED_NUMBER2: ({ minNum }: { minNum: number }) => yup.number().required().moreThan(minNum, `${minNum}이상의 숫자만 입력 가능`),
