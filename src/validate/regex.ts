@@ -7,8 +7,7 @@ export const regex = {
   localNumber: /^(0(2|3[1-3]|4[1-4]|5[1-5]|6[1-4]|70))(\d{3,4})(\d{4})$/, //지역 전화번호
   eng: /[a-z]/gi,
   num: /[0-9]/g,
-  leng: /^[A-Za-z\d]{10,}$/,
-  special_1: /^[0-9a-zA-Z가-힣ㄱ-ㅎㅏ-ㅣ\x20]*$/gi, //한글,영문,숫자를 제외한 특수문자,이모티콘 입력 체크
+  special_1: /^[0-9a-zA-Z가-힣ㄱ-ㅎㅏ-ㅣ\x20]*$/gi, //한글, 영문, 숫자를 제외한 특수문자, 이모티콘 입력 체크
   space: /\s/,
   allSpace: /^[^\s]*$/,
   firstSpace: /^\S/, //첫번째글자 공백 체크
@@ -24,7 +23,7 @@ export const regex = {
   onlyNumber: /^[0-9.]*$/,
   onlyEng: /^[a-zA-Z]*$/,
   optionLocalNumber: /^(0(2|3[1-3]|4[1-4]|5[1-5]|6[1-4]|70))(\d{3,4})(\d{4})$|^$/,
-  tagTitleKor: /^(?=.*[가-힣])[가-힣a-zA-Z\d]*$/,
-  tagTitleEng: /^(?=.*[a-zA-Z])[a-zA-Z_0-9]*$|^$/,
+  koreanAndEng: /^(?=.*[가-힣])[가-힣a-zA-Z\d]*$/,
+  koreanAndEngNumber: /^(?=.*[a-zA-Z])[a-zA-Z_0-9]*$|^$/,
   twoDecimalPlaces: /^(?!0$)\d+(\.\d{0,2})?$/, //숫자, ., 소수점 두 자리까지 입력 가능
 };

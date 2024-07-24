@@ -15,12 +15,12 @@ yup.setLocale({
 const EMAIL_VALID_TEXT = '이메일 형식을 확인해주세요';
 const KO_VALID_TEXT_1 = '모음 입력제한';
 const KO_VALID_TEXT_2 = '자음 입력제한';
-const KO_VALID_TEXT_3 = '한글은 허용되지않습니다';
+const KO_VALID_TEXT_3 = '한글은 허용되지 않습니다';
 const KO_VALID_TEXT_4 = '한글입력만 허용됩니다';
 const FIRST_SPACES_VALID_TEXT = '첫글자 공백';
 const LAST_SPACES_VALID_TEXT = '마지막글자 공백';
 const SPACES_VALID_TEXT_2 = '띄어쓰기 불가';
-const SPECIAL_VALID_TEXT_1 = '특수문자는 허용되지않습니다';
+const SPECIAL_VALID_TEXT_1 = '특수문자는 허용되지 않습니다';
 
 const MORE_TEXT = (more: number) => `${more}글자 이상`;
 const LESS_TEXT = (less: number) => `${less}글자 이하`;
@@ -31,7 +31,6 @@ export const validation = {
   SIGN_IN_ID: yup.string().required().matches(regex.signInId, '5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 입력 가능합니다.'),
   EMAIL: yup.string().required().email(EMAIL_VALID_TEXT), //이메일
   PASSWORD: yup.string().required().matches(regex.password, '영 대소문자,특수문자,숫자를 포함한 8자~16자'), //비밀번호
-  VALID_PASSWORD: yup.string().required().matches(regex.password, '영 대소문자,특수문자,숫자를 포함한 8자~16자'), //정규표현식 비밀번호
   PASSWORD_CONFIRM: yup.string().required(), //비밀번호 확인
   BUSINESS_NUMBER: yup.string().required().matches(regex.businessNumber, '사업자번호 형식을 확인해주세요'), //비밀번호
   PHONE_NUMBER: yup.string().required().matches(regex.phone, '010으로 시작하는 "-"를 제외한 숫자만 입력 가능합니다'), //비밀번호
@@ -65,7 +64,7 @@ export const validation = {
   TEXT_2: ({ minLength, maxLength }: { minLength: number; maxLength: number }) =>
     yup
       .string()
-      .matches(regex.tagTitleEng, '영문필수, 숫자와 _만 입력 가능')
+      .matches(regex.koreanAndEng, '영문필수, 숫자만 입력 가능')
       .min(minLength, MORE_TEXT(minLength))
       .max(maxLength, LESS_TEXT(maxLength)),
   //필수 ) 텍스트 - 공백체크(O)
@@ -144,7 +143,7 @@ export const validation = {
       .matches(regex.lastSpace, LAST_SPACES_VALID_TEXT)
       .matches(regex.gather, KO_VALID_TEXT_1)
       .matches(regex.consonant, KO_VALID_TEXT_2)
-      .matches(regex.tagTitleKor, '한글 필수, 영문, 숫자만 입력 가능')
+      .matches(regex.koreanAndEngNumber, '한글 필수, 영문, 숫자만 입력 가능')
       .min(minLength, MORE_TEXT(minLength))
       .max(maxLength, LESS_TEXT(maxLength)),
 
