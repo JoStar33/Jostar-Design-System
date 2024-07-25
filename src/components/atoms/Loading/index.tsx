@@ -1,9 +1,15 @@
-import styled from 'styled-components';
+import { S } from './Loading.style';
 
-export default function Loading() {
-  return <S.Loading>Loading</S.Loading>;
+type LoadingMode = 'fixed' | 'relative' | 'absolute';
+
+interface Props {
+  mode?: LoadingMode;
 }
 
-const S = {
-  Loading: styled.div``,
-};
+export default function Loading({ mode = 'relative' }: Props) {
+  return (
+    <S.Loading style={{ position: mode }}>
+      <div className="loading" />
+    </S.Loading>
+  );
+}

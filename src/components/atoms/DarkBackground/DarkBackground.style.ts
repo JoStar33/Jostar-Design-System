@@ -1,8 +1,9 @@
 import { flexCenter } from '@/styles/Common';
+import { motion } from 'framer-motion';
 import { styled } from 'styled-components';
 
 export const S = {
-  DarkBackground: styled.div`
+  DarkBackground: styled(motion.div)`
     z-index: 6;
     position: fixed;
     top: 0;

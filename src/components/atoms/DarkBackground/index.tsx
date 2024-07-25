@@ -21,7 +21,7 @@ export default function DarkBackground({ children, onClickClose, scrollLock, sty
   }, [scrollLock]);
 
   return (
-    <S.DarkBackground onClick={onClickClose} style={style}>
+    <S.DarkBackground animate={{ opacity: [0, 1] }} onClick={onClickClose} style={style}>
       {children}
     </S.DarkBackground>
   );

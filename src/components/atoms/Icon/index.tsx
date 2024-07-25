@@ -5,17 +5,17 @@ import { colors } from '@/styles/Theme';
 
 export type IconType = keyof typeof svg;
 
-export type Props = {
+export interface Props {
   name: IconType;
   className?: string;
   style?: React.CSSProperties | undefined;
   width?: string;
   height?: string;
   margin?: string;
-  onClick?: any;
+  onClick?: (event: React.MouseEvent<SVGAElement>) => void;
   cursor?: string;
   color?: keyof typeof colors;
-};
+}
 
 function Icon({ name, className, style, onClick, color }: Props) {
   return React.createElement(svg[name], {

@@ -2,7 +2,7 @@ import React, { KeyboardEventHandler } from 'react';
 import { useFormContext, Path, FieldValues } from 'react-hook-form';
 import ErrorText from '@/components/atoms/ErrorText';
 import { S } from './Input.style';
-interface Props<T> extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+interface Props<T extends FieldValues> extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   name: Path<T>;
   label?: string;
   placeholder?: string;

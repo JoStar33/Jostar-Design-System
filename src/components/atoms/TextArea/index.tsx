@@ -3,7 +3,7 @@ import { useFormContext, Path, FieldValues } from 'react-hook-form';
 import ErrorText from '../ErrorText';
 import { S } from './TextArea.style';
 
-interface Props<T> extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLTextAreaElement>, HTMLTextAreaElement> {
+interface Props<T extends FieldValues> extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLTextAreaElement>, HTMLTextAreaElement> {
   name: Path<T>;
   label?: string;
   maxLength?: number;
